@@ -4,7 +4,7 @@ function About(params) {
     return(
         <>
         <section className='hero-section'>
-            <h1 className='hero-heading text-center'>Every Idea need a Cintan.</h1>
+            <h1 className='hero-heading text-center'>Every Idea need a Thought.</h1>
         </section>
         <div class="row">
             <div class="column p-5">
@@ -28,6 +28,7 @@ function About(params) {
                 </h4>
             </div>
             <div class="column">
+
             </div>
         </div>
         </>
