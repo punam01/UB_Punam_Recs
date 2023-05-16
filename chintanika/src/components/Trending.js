@@ -2,6 +2,7 @@ import React from 'react'
 import { IconContext } from "react-icons";
 
 import { FaHotjar,FaUserCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 function Trending(){
@@ -22,11 +23,11 @@ function Trending(){
                         <div className="card-body ">
                             <div className="row mb-4">
                                 <div className="col-1">
-                                    <a className="nav-link" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link className="nav-link" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
                                         <FaUserCircle/>
                                     </IconContext.Provider>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="col text-start"><b>Punam Kumavat</b></div>
                             </div>
@@ -44,11 +45,11 @@ function Trending(){
                         <div className="card-body ">
                             <div className="row mb-4">
                                 <div className="col-1">
-                                    <a className="nav-link" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link className="nav-link" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
                                         <FaUserCircle/>
                                     </IconContext.Provider>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="col text-start"><b>Utkrishta Bharat</b></div>
                             </div>
@@ -66,11 +67,11 @@ function Trending(){
                         <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
-                                    <a className="nav-link" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link className="nav-link" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
                                         <FaUserCircle/>
                                     </IconContext.Provider>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="col text-start"><b>Punam Kumavat</b></div>
                             </div>
