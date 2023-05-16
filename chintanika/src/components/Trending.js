@@ -8,17 +8,17 @@ function Trending(){
     return(
         <>
         <section className='trending-section'>
-            <h4 className='mb-2'> 
+            <h4 className='mb-2 p-3'> 
                 <IconContext.Provider value={{ className: "top-react-icons" }}>
                     <FaHotjar/>
                 </IconContext.Provider>
                  Trending on 
-                <span className='.navbar-brand'> Chintanika</span>
+                <span className='navbar-brand'> Chintanika</span>
             </h4>
             <div className="row ">
                 
                 <div className="col-sm-4 mb-3 mb-sm-0">
-                    <div className="card btn border-0">
+                    <div className="card btn border">
                         <div className="card-body ">
                             <div className="row mb-4">
                                 <div className="col-1">
@@ -40,7 +40,7 @@ function Trending(){
                 
 
                 <div className="col-sm-4 mb-3 mb-sm-0">
-                    <div className="card btn border-0">
+                    <div className="card btn border">
                         <div className="card-body ">
                             <div className="row mb-4">
                                 <div className="col-1">
@@ -62,7 +62,7 @@ function Trending(){
 
 
                 <div className="col-sm-4 mb-3 mb-sm-0">
-                    <div className="card btn border-0">
+                    <div className="card btn border">
                         <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">

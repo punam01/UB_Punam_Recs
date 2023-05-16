@@ -48,10 +48,10 @@ function Navbar(props){
                                 </IconContext.Provider>
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/">Action</a></li>
-                                <li><a className="dropdown-item" href="/">Another action</a></li>
+                                <li><a className="dropdown-item" href="/">Profile</a></li>
+                                <li><a className="dropdown-item" href="/">Write</a></li>
                                 <li><hr className="dropdown-divider"/></li>
-                                <li><a className="dropdown-item" href="/">Something else here</a></li>
+                                <li><a className="dropdown-item" href="/">Bookmarks</a></li>
                             </ul>
                         </li>
                     </ul>                    

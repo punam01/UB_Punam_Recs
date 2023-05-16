@@ -51,9 +51,8 @@ p{
 
 /*Trending*/
 .trending-section{
-  padding: 6rem;
+  padding: 7rem;
   border-bottom: 1px solid black;
-  margin-bottom: 50px;
   background-color: white;
 }
 
@@ -70,9 +69,6 @@ p{
   pointer-events: none;
   z-index: 99999999; /* so that it stays on top of all other elements */
 }
-
-
-
 
 
 /*SCROLLBAR*/
