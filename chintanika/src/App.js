@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import TextEditor from './components/TextEditor';
 import { useState } from 'react';
+import Signup from './components/Signup';
+import Login from './components/Login';
+
 
 function App() {
   const [content,setContent]=useState("");
@@ -16,11 +19,15 @@ function App() {
     <>
     <Router>
     <Routes>
+      <Route path='/signup' element={<Signup/> } >
+      </Route>
       <Route path='/about' element={<About />}>
       </Route>
       <Route path='/' element={<Home/> } >
       </Route>
       <Route path='/texteditor' element={<TextEditor setContent={setContent}/> } >
+      </Route>
+      <Route exact path='/login' element={<Login/>}>
       </Route>
     </Routes>
     </Router>
