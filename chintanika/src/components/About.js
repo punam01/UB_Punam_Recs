@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from './Navbar';
 
 function About(params) {
     return(
         <>
+        <Navbar heading="Chintanika" title="ABOUT US"/>
         <section className='hero-section'>
             <h1 className='hero-heading text-center'>Every Idea need a Thought.</h1>
         </section>

@@ -95,6 +95,11 @@ img{
   background-size: contain;
 }
 
+/*JODIT*/
+.jodit-status-bar a{
+  visibility: hidden;
+}
+
 
 
 /*SCROLLBAR*/

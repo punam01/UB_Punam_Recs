@@ -1,5 +1,4 @@
 import './App.css';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import {About} from './components/About';
@@ -8,16 +7,20 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import TextEditor from './components/TextEditor';
+import { useState } from 'react';
 
 function App() {
+  const [content,setContent]=useState("");
   return (
     <>
     <Router>
-    <Navbar heading="Chintanika"></Navbar>
     <Routes>
       <Route path='/about' element={<About />}>
       </Route>
-      <Route path='/' element={<Home />}>
+      <Route path='/' element={<Home/> } >
+      </Route>
+      <Route path='/texteditor' element={<TextEditor setContent={setContent}/> } >
       </Route>
     </Routes>
     </Router>

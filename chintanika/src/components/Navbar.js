@@ -29,7 +29,7 @@ function Navbar(props){
                     </form>
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item mx-2">
-                            <Link className="nav-link" to="/">
+                            <Link className="nav-link" to="/texteditor">
                                 <IconContext.Provider value={{ className: "top-react-icons" }}>
                                     <FaPencilAlt/>
                                 </IconContext.Provider>
@@ -59,7 +59,7 @@ function Navbar(props){
                 </div>            
             </div>
         </nav>
-        <h3 className='head text-center fixed-top my-2'>WELCOME</h3>
+        <h3 className='head text-center fixed-top my-2'>{props.title}</h3>
         </>
     );
 }
