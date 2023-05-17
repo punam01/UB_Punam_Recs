@@ -8,10 +8,10 @@ function InfScroll(props){
         <>
         <div className='hero-section'>
         <section>
-            <div class="row">
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+            <div className="row">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -23,8 +23,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
@@ -35,9 +35,9 @@ function InfScroll(props){
                     </div>
                 </div>
 
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -49,8 +49,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
@@ -61,9 +61,9 @@ function InfScroll(props){
                     </div>
                 </div>
 
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -75,8 +75,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
@@ -87,9 +87,9 @@ function InfScroll(props){
                     </div>
                 </div>
 
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -101,8 +101,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
@@ -113,9 +113,9 @@ function InfScroll(props){
                     </div>
                 </div>
 
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -127,8 +127,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
@@ -139,9 +139,9 @@ function InfScroll(props){
                     </div>
                 </div>
 
-                <div class="col-sm-6 mb-3">
-                    <div class="card btn text-start border">
-                        <div class="card-body">
+                <div className="col-sm-6 mb-3">
+                    <div className="card btn text-start border">
+                        <div className="card-body">
                             <div className="row mb-4">
                                 <div className="col-1">
                                     <IconContext.Provider value={{ className: "top-react-icons" }}>
@@ -153,8 +153,8 @@ function InfScroll(props){
                                     <p> May 5 . 5 mins read</p>
                                 </div>
                             </div>
-                            <span class="card-text">The Nature of Consciousness:</span>
-                            <p class="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
+                            <span className="card-text">The Nature of Consciousness:</span>
+                            <p className="card-text"> Delving into the philosophical conundrums surrounding the mind-body problem and the nature of subjective experience.</p>
                             <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
                                 <FaBookmark/>
                             </IconContext.Provider>
