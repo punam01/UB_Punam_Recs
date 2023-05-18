@@ -3,9 +3,9 @@ const express = require('express');
 
 connectToMongo();
 const app = express();
-const port=3000;
+const port=5000;
 
-//middleware to use req.body in auth
+//middleware to use req.body in aut
 app.use(express.json())
 
 //available routes
@@ -17,5 +17,5 @@ app.use('/api/article',require('./routes/article'));
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`);
 })
