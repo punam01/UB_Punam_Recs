@@ -6,9 +6,11 @@ var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 
 
-//to check if someone tempers the userid sent to get token
+//to check if someone tempers the userid sent to get token  
 const JWT_SECRET = "ChaseYourStarsFoolLifeIsShort";
-//create a user using: post "/api/auth/createuser". no login required
+
+
+//ROUTE 1-create a user using: post "/api/auth/createuser". no login required
 router.post(
   "/createuser",
   [
@@ -57,5 +59,52 @@ router.post(
     }
   }
 );
+
+//ROUTE-2 authenticate user: post "/api/auth/login". no login required (endpoint login)
+router.post(
+  "/login",
+  [
+    //if email is wrong or password is empty we wont touch the server
+    body("email", "email format ->name@test.com").isEmail(),
+    body("password","password cannot be empty").exists()
+  ],
+  async (req, res) => {
+    //if there are error -->return bad request and error
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    //otherwise get email or password from request body
+    const {email,password}=req.body;
+
+    try {
+        //find the user in User model
+        let user= await User.findOne({email});
+        //if user doesnot exists return user does not exists
+        if(!user){
+            return res.status(400).json({error:'Login with correct credentials'});
+        }
+
+        //otherwise compare paswword entered by user with password in the table using bcrypt
+        const passwordCompare= await bcrypt.compare(password,user.password);
+        //if wrong password
+        if(!passwordCompare){
+            return res.status(400).json({error:'Login with correct credentials'});
+        }
+        //else send authToken
+        const data={
+            user:{
+                id:user.id
+            }
+        }
+        const authToken=jwt.sign(data,JWT_SECRET);
+        res.json(authToken)
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+  });
+
+
 
 module.exports = router;
