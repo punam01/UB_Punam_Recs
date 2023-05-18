@@ -95,6 +95,30 @@ img{
   background-size: contain;
 }
 
+/*CARD*/
+.title{
+  font-family: 'DM Serif Display', serif;
+  color: #1E2742;
+  font-weight: 600;
+}
+.content{
+  max-height: 20px;
+}
+.content::after{
+  content: '...';
+}
+.article{
+  background-color: #1E2742;
+  display: block;
+  align-items: center;
+}
+.article-card{
+  max-width: 75%;
+  max-height: 20%;
+}
+img{
+  background-size: object-fit;
+}
 /*JODIT*/
 .jodit-status-bar a{
   visibility: hidden;
