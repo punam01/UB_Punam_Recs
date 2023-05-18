@@ -24,8 +24,7 @@ const ArticleSchema = new mongoose.Schema({
     unique: true,
   },
   view_counts: {
-    type: Number,
-    required: true,
+    type: Number
   },
   like_counts: {
     type: Number,
