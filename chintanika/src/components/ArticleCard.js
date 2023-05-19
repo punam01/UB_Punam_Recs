@@ -141,6 +141,8 @@ function ArticleCard(props) {
                               id="etitle"
                               name="etitle"
                               onChange={onChange}
+                              minLength={5}
+                              required
                             />
                           </div>
                           <div className="mb-3">
@@ -157,6 +159,8 @@ function ArticleCard(props) {
                               id="edescription"
                               name="edescription"
                               onChange={onChange}
+                              minLength={5}
+                              required
                             />
                           </div>
                         </form>
@@ -172,6 +176,8 @@ function ArticleCard(props) {
                               setArticle({ ...earticle, econtent: content });
                             }}
                             value={earticle.econtent}
+                            minLength={5}
+                              required
                           ></JoditEditor>
                         </div>
                         <div className="mb-3">
@@ -185,6 +191,8 @@ function ArticleCard(props) {
                             value={earticle.etag}
                             name="etag"
                             onChange={onChange}
+                            minLength={5}
+                              required
                           />
                         </div>
                         {/*modal body end*/}

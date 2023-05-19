@@ -16,13 +16,19 @@ function TextEditor({ setContent }) {
     tag: "",
   });
   const handleClick = (e) => {
-    console.log(article.title+" "+article.content);
     addArticle(
       article.title.toString(),
       article.description.toString(),
       article.content.toString(),
       article.tag.toString()
     );
+    //clear fields
+    setArticle({
+    title: "",
+    description: "",
+    content: "",
+    tag: "",
+  })
   };
   const onChange = (e) => {
     //spread operator
@@ -45,6 +51,9 @@ function TextEditor({ setContent }) {
               name="title"
               aria-describedby="emailHelp"
               onChange={onChange}
+              minLength={5}
+              required
+              value={article.title}
             />
           </div>
           <div className="mb-3">
@@ -57,6 +66,9 @@ function TextEditor({ setContent }) {
               id="description"
               name="description"
               onChange={onChange}
+              minLength={5}
+              required
+              value={article.description}
             />
           </div>
         </form>
@@ -68,6 +80,9 @@ function TextEditor({ setContent }) {
             ref={editor}
             name="content"
             id="content"
+            value={article.content}
+            minLength={5}
+            required
             onChange={(content) => {
               setArticle({ ...article, content: content });
             }}
@@ -83,10 +98,13 @@ function TextEditor({ setContent }) {
             id="tag"
             name="tag"
             onChange={onChange}
+            minLength={5}
+            required
+            value={article.tag}
           />
         </div>
         <div className="text-end">
-          <button className=" btn hero" onClick={handleClick}>
+          <button  className=" btn hero" onClick={handleClick}>
             Publish Article
           </button>
         </div>

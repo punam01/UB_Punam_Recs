@@ -33,19 +33,7 @@ const ArticleState = (props) => {
       },
       body: JSON.stringify({ title, description, content, tag }),
     });
-    const json = await response.json();
-    console.log("adding new note " + json);
-    const article = {
-      _id: "6467124da8vd995c41f13d0354",
-      user: "64671bc8a8995c41f13d0349",
-      title: title,
-      description: description,
-      content: content,
-      like_counts: 0,
-      tag: tag,
-      pub_date: "2023-05-19T06:50:53.610Z",
-      __v: 0,
-    };
+    const article = await response.json();
     setArticles(articles.concat(article));
   };
 
