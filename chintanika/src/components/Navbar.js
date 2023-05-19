@@ -1,20 +1,11 @@
-import {
-  FaBars,
-  FaPencilAlt,
-  FaReadme,
-  FaSearch,
-  FaUserCircle,
-} from "react-icons/fa";
+import { FaBars, FaSearch, FaUserCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 function Navbar(props) {
   //useLocation to get current working component
   let location = useLocation();
-  useEffect(() => {
-    console.log(location.path);
-  }, [location]);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg fixed-top">
@@ -60,11 +51,12 @@ function Navbar(props) {
                   }`}
                   to="/texteditor"
                 >
-                  <IconContext.Provider
+                  Write
+                  {/*<IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
                     <FaPencilAlt />
-                  </IconContext.Provider>
+                </IconContext.Provider>*/}
                 </Link>
               </li>
               <li className="nav-item mx-2">
@@ -75,11 +67,12 @@ function Navbar(props) {
                   aria-current="page"
                   to="/about"
                 >
-                  <IconContext.Provider
+                  About
+                  {/*<IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
                     <FaReadme />
-                  </IconContext.Provider>
+                </IconContext.Provider>*/}
                 </Link>
               </li>
               <li className="nav-item dropstart mx-2">

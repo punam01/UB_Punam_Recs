@@ -5,18 +5,18 @@ const { Schema } = mongoose;
 //tag -->0:philosophy
 const ArticleSchema = new mongoose.Schema({
   //foreign key user ref user model
-  user:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'user'
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   },
   title: {
     type: String,
     required: true,
     unique: true,
   },
-  description:{
+  description: {
     type: String,
-    required: true
+    required: true,
   },
   content: {
     type: String,
@@ -24,15 +24,14 @@ const ArticleSchema = new mongoose.Schema({
     unique: true,
   },
   view_counts: {
-    type: Number
+    type: Number,
   },
   like_counts: {
     type: Number,
     default: 0,
   },
   tag: {
-    type: Number,
-    default: 0,
+    type: String,
   },
   pub_date: {
     type: Date,

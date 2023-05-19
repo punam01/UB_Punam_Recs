@@ -1,9 +1,54 @@
-import React from "react";
+import React, { useContext, useRef, useState } from "react";
 import { IconContext } from "react-icons";
-import { FaEdit, FaShareSquare } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaEdit, FaShareSquare, FaTrash } from "react-icons/fa";
+import articleContext from "../context/articles/ArticleContext";
+import JoditEditor from "jodit-react";
 
-function ArticleCard() {
+function ArticleCard(props) {
+  const context = useContext(articleContext);
+  const { delArticle, editArticle } = context;
+  const ref = useRef(null);
+  const refClose = useRef(null);
+  const editor = useRef(null);
+
+  const [earticle, setArticle] = useState({
+    eid: "",
+    etitle: "",
+    edescription: "",
+    econtent: "",
+    etag: "",
+  });
+
+  const updateArticle = (currentArticle) => {
+    ref.current.click();
+    setArticle({
+      eid: currentArticle._id,
+      etitle: currentArticle.title,
+      edescription: currentArticle.description,
+      econtent: currentArticle.content,
+      etag: currentArticle.tag,
+    });
+  };
+
+  const handleClick = (e) => {
+    //console.log("updating new value",earticle);
+    editArticle(
+      earticle.eid,
+      earticle.etitle.toString(),
+      earticle.edescription.toString(),
+      earticle.econtent,
+      earticle.etag.toString()
+    );
+    refClose.current.click();
+  };
+  const onChange = (e) => {
+    //spread operator
+    setArticle({ ...earticle, [e.target.name]: [e.target.value] });
+    //console.log(earticle);
+  };
+
+  const { article } = props;
+
   return (
     <>
       <div className="container">
@@ -18,15 +63,21 @@ function ArticleCard() {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="title">Card title</h5>
-                <p className="card-text content">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content
-                </p>
+                <h5 className="title">{article.title}</h5>
+                <p className="card-text content mb-3">{article.description}</p>
                 <p className="card-text">
-                  <small className="text-body-secondary">5 min read</small>
+                  {/*set readinf time*/}
+                  <small className="text-body-secondary">
+                    {(
+                      Math.round(
+                        0.008 * article.content.split(" ").length * 100
+                      ) / 100
+                    ).toFixed(1)}{" "}
+                    minutes read
+                  </small>
                 </p>
               </div>
+
               <div className="d-flex">
                 <button className="btn mx-2">
                   <IconContext.Provider
@@ -35,37 +86,142 @@ function ArticleCard() {
                     <FaShareSquare />
                   </IconContext.Provider>
                 </button>
-                <div className="dropdown-start">
-                  <button
-                    className="btn dropdown"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+
+                <button
+                  type="button"
+                  className="btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  ref={ref}
+                  onClick={() => {
+                    updateArticle(article);
+                  }}
+                >
+                  <IconContext.Provider
+                    value={{ className: "top-react-icons" }}
                   >
-                    <IconContext.Provider
-                      value={{ className: "top-react-icons" }}
-                    >
-                      <FaEdit />
-                    </IconContext.Provider>
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <Link className="dropdown-item" to="/">
-                        Update
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/">
-                        Delete
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/">
-                        View Stats
-                      </Link>
-                    </li>
-                  </ul>
+                    <FaEdit />
+                  </IconContext.Provider>
+                </button>
+
+                <div
+                  className="modal fade"
+                  id="exampleModal"
+                  tabIndex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div className="modal-dialog modal-dialog-scrollable">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h1
+                          className="modal-title fs-5 hero-heading"
+                          id="exampleModalLabel"
+                        >
+                          Edit Article
+                        </h1>
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div className="modal-body">
+                        {/*modal body start*/}
+                        <form>
+                          <div className="mb-3">
+                            <label htmlFor="etitle" className="form-label">
+                              Title
+                            </label>
+                            <input
+                              type="text"
+                              value={earticle.etitle}
+                              className="form-control hero-heading fs-4"
+                              id="etitle"
+                              name="etitle"
+                              onChange={onChange}
+                            />
+                          </div>
+                          <div className="mb-3">
+                            <label
+                              htmlFor="edescription"
+                              className="form-label"
+                            >
+                              Description
+                            </label>
+                            <input
+                              type="text"
+                              value={earticle.edescription}
+                              className="form-control"
+                              id="edescription"
+                              name="edescription"
+                              onChange={onChange}
+                            />
+                          </div>
+                        </form>
+                        <div className="mb-3">
+                          <label htmlFor="econtent" className="form-label">
+                            Content
+                          </label>
+                          <JoditEditor
+                            ref={editor}
+                            name="econtent"
+                            id="econtent"
+                            onChange={(content) => {
+                              setArticle({ ...earticle, econtent: content });
+                            }}
+                            value={earticle.econtent}
+                          ></JoditEditor>
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="etag" className="form-label hero p-2">
+                            Tags
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="etag"
+                            value={earticle.etag}
+                            name="etag"
+                            onChange={onChange}
+                          />
+                        </div>
+                        {/*modal body end*/}
+                      </div>
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          className="btn hero"
+                          data-bs-dismiss="modal"
+                          ref={refClose}
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          className="btn hero"
+                          onClick={handleClick}
+                        >
+                          Update Article
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                <button
+                  className="btn mx-2"
+                  onClick={() => {
+                    delArticle(article._id);
+                  }}
+                >
+                  <IconContext.Provider
+                    value={{ className: "top-react-icons" }}
+                  >
+                    <FaTrash />
+                  </IconContext.Provider>
+                </button>
               </div>
             </div>
           </div>
