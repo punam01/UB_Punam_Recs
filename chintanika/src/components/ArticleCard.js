@@ -33,7 +33,7 @@ function ArticleCard(props) {
   const handleClick = (e) => {
     //console.log("updating new value",earticle);
     editArticle(
-      earticle.eid,
+      earticle.eid.toString(),
       earticle.etitle.toString(),
       earticle.edescription.toString(),
       earticle.econtent,
@@ -51,7 +51,7 @@ function ArticleCard(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container border-bottom">
         <div className="card article-card mb-3 my-5">
           <div className="row g-0">
             <div className="col-md-4">

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import articleContext from "../context/articles/ArticleContext";
 import Alert from "./Alert";
+import { IconContext } from "react-icons";
+import { FaSadTear } from "react-icons/fa";
 
 function MyArticles() {
   const context = useContext(articleContext);
@@ -29,6 +31,10 @@ function MyArticles() {
           </Link>
         </div>
       </section>
+      <div className="container p-2 text-center light-text">
+        {articles.length === 0 && "No articles!"}
+        <br />
+      </div>
       {articles.map((article) => {
         return <ArticleCard key={article._id} article={article} />;
       })}

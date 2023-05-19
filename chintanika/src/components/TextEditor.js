@@ -16,17 +16,17 @@ function TextEditor({ setContent }) {
     tag: "",
   });
   const handleClick = (e) => {
-    e.preventDefault();
+    console.log(article.title+" "+article.content);
     addArticle(
-      article.title,
-      article.description,
-      article.content,
-      article.tag
+      article.title.toString(),
+      article.description.toString(),
+      article.content.toString(),
+      article.tag.toString()
     );
   };
   const onChange = (e) => {
     //spread operator
-    setArticle({ ...article, [e.target.name]: [e.target.value] });
+  setArticle({ ...article, [e.target.name]: [e.target.value] });
   };
 
   return (

@@ -119,6 +119,12 @@ img{
 img{
   background-size: object-fit;
 }
+
+.light-text{
+  color:gray;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-weight: 500;
+}
 /*JODIT*/
 .jodit-status-bar a{
   visibility: hidden;
