@@ -124,7 +124,9 @@ img{
   visibility: hidden;
 }
 
-
+.active{
+  color: blanchedalmond;
+}
 
 /*SCROLLBAR*/
 /* width */

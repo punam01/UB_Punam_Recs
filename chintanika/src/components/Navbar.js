@@ -6,9 +6,15 @@ import {
   FaUserCircle,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function Navbar(props) {
+  //useLocation to get current working component
+  let location = useLocation();
+  useEffect(() => {
+    console.log(location.path);
+  }, [location]);
   return (
     <>
       <nav className="navbar navbar-expand-lg fixed-top">
@@ -48,7 +54,12 @@ function Navbar(props) {
             </form>
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item mx-2">
-                <Link className="nav-link" to="/texteditor">
+                <Link
+                  className={`nav-link ${
+                    location.pathname === "/texteditor" ? "active" : ""
+                  }`}
+                  to="/texteditor"
+                >
                   <IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
@@ -58,7 +69,9 @@ function Navbar(props) {
               </li>
               <li className="nav-item mx-2">
                 <Link
-                  className="nav-link active"
+                  className={`nav-link ${
+                    location.pathname === "/about" ? "active" : ""
+                  }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -71,7 +84,9 @@ function Navbar(props) {
               </li>
               <li className="nav-item dropstart mx-2">
                 <Link
-                  className="nav-link"
+                  className={`nav-link ${
+                    location.pathname === "/" ? "active" : ""
+                  }`}
                   to="/"
                   role="button"
                   data-bs-toggle="dropdown"
