@@ -1,7 +1,14 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 function About(params) {
+  const navigate=useNavigate();
+  const handleClick=()=>{
+    if(localStorage.getItem('token')!==null){
+      navigate('/texteditor');
+    }
+  }
   return (
     <>
       <Navbar heading="Chintanika" title="ABOUT US" />
@@ -35,7 +42,7 @@ function About(params) {
           leading authors, and smart takes on our own suite of blogs and
           publications.
         </h4>
-        <button className="btn hero my-5">Write on Chintanika</button>
+        <button onClick={handleClick} className="btn hero my-5">Write on Chintanika</button>
       </section>
       <div className="row">
         <div className="column p-5">
