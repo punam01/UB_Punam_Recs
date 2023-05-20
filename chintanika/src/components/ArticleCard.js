@@ -79,7 +79,8 @@ function ArticleCard(props) {
                 </p>
               </div>
 
-              <div className="d-flex">
+              <div className="d-flex mx-2">
+                <small className="tag mx-2 p-2">{article.tag}</small>
                 <button className="btn mx-2">
                   <IconContext.Provider
                     value={{ className: "top-react-icons" }}

@@ -113,8 +113,8 @@ function Navbar(props) {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
-                      Reading List
+                    <Link className="dropdown-item" to="/read">
+                      Read
                     </Link>
                   </li>
                   <li>
