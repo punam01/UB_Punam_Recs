@@ -1,9 +1,12 @@
 import { FaBars, FaSearch, FaUserCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Navbar(props) {
   let navigate=useNavigate();
+  const [image,setImage]=useState("");
+  
   //useLocation to get current working component
   let location = useLocation();
   const handleLogout=()=>{
@@ -89,12 +92,14 @@ function Navbar(props) {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
+                >{image===""|| image===null?
                   <IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
                     <FaUserCircle />
-                  </IconContext.Provider>
+                  </IconContext.Provider>:
+                  <img src={image} style={{width:"100px",height:"100px"}}/>
+                  }
                 </Link>
                 <ul className="dropdown-menu border-0">
                   <li>

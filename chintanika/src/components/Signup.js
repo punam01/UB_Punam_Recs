@@ -4,15 +4,30 @@ import { Link, useNavigate } from "react-router-dom";
 function Signup(props) {
   let navigate = useNavigate();
 
+  const [image,setImage]=useState("");
+  //console.log(image);
+
+  const convertToBase64=(e)=>{
+    var reader=new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload=()=>{
+      console.log(reader.result);
+      setImage(reader.result);
+    }
+    reader.onerror=(error)=>{
+      console.log("Error "+error);
+    }
+  }
   const [credentials, setCredentials] = useState({
     name:"",
     email: "",
     password: "",
-    cpassword:""
+    cpassword:"",
+    image:""//added
   });
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent from reload
-    const {name,email,password}=credentials;
+    const {name,email,password,image}=credentials;//added
     const response = await fetch("http://localhost:5000/api/auth/createuser", {
       method: "POST",
       headers: {
@@ -22,6 +37,7 @@ function Signup(props) {
         name:name,
         email:email,
         password:password,
+        image:image//added
       }),
     });
     const json = await response.json();
@@ -38,6 +54,9 @@ function Signup(props) {
     }
   };
   const onChange = (e) => {
+    if(e.target.name==="image"){
+      convertToBase64(e);//added
+    }
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
@@ -47,6 +66,18 @@ function Signup(props) {
         <h5 className="hero-heading fs-1">Create your account</h5>
         <p>Let's get started</p>
         <form onSubmit={handleSubmit}>
+          <div className="mb-3 text-start col-6">
+            <label htmlFor="image" className="form-label">
+              Upload Image
+            </label>
+            <input
+              accept="image/*"
+              type="file"
+              onChange={onChange}
+              id="image"
+              name="image"
+            />
+          </div>
           <div className="mb-3 text-start col-6">
             <label htmlFor="name" className="form-label">
               Name

@@ -3,6 +3,9 @@ const { Schema } = mongoose;
 
 //unique emailid
 const UserSchema = new mongoose.Schema({
+  image:{
+    type:String
+  },
   name: {
     type: String,
     required: true,

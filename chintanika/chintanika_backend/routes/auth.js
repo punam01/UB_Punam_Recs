@@ -45,6 +45,7 @@ router.post(
         name: req.body.name,
         password: secPass,
         email: req.body.email,
+        image:req.body.image//added
       });
       const data = {
         user: {

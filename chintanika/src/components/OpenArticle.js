@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { IconContext } from "react-icons";
-import { FaEye, FaThumbsUp } from "react-icons/fa";
-
+import {
+  FaEye,
+  FaFacebookSquare,
+  FaLinkedin,
+  FaThumbsUp,
+  FaTwitter,
+} from "react-icons/fa";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+} from "react-share";
 const OpenArticle = (props) => {
   const article = {
     title: "Title",
@@ -16,45 +26,74 @@ const OpenArticle = (props) => {
   return (
     <>
       <Navbar heading="Chintanika" />
-
-      <section className="hero-section">
-        <div className="container">
-          <div className="d-flex row-4">
-            <img
-              className="col-1 mx-4 mb-2 "
-              src="/images/p1.jpg"
-              style={{ width: "100px", height: "100px", borderRadius: "100px" }}
-            />
-            <div className="col container text-start">
-              <p className="fs-3">
-                pUNAM kUMAVAT <sub className="fs-6">({article.date})</sub>
-              </p>
-              <div className="d-flex">
-                <p className="fs-4">
-                  <small>{article.like_counts}</small>
-                  <IconContext.Provider
-                    value={{ className: "top-react-icons" }}
-                  >
-                    <FaThumbsUp />
-                  </IconContext.Provider>
+      <div className="share-this-page">
+        <section className="hero-section">
+          <div className="container">
+            <div className="d-flex row-4">
+              <img
+                className="col-1 mx-4 mb-2 "
+                src="/images/p1.jpg"
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  borderRadius: "100px",
+                }}
+              />
+              <div className="col container text-start">
+                <p className="fs-3">
+                  pUNAM kUMAVAT <sub className="fs-6">({article.date})</sub>
                 </p>
-                <p className="mx-4 fs-4">
-                  <small>{article.view_counts}</small>
-                  <IconContext.Provider
-                    value={{ className: "top-react-icons" }}
-                  >
-                    <FaEye />
-                  </IconContext.Provider>
-                </p>
+                <div className="d-flex">
+                  <p className="fs-4">
+                    <small>{article.like_counts}</small>
+                    <IconContext.Provider
+                      value={{ className: "top-react-icons" }}
+                    >
+                      <FaThumbsUp />
+                    </IconContext.Provider>
+                  </p>
+                  <p className="mx-4 fs-4">
+                    <small>{article.view_counts}</small>
+                    <IconContext.Provider
+                      value={{ className: "top-react-icons" }}
+                    >
+                      <FaEye />
+                    </IconContext.Provider>
+                  </p>
+                  <p className="mx-4 fs-6">
+                    {(
+                      Math.round(
+                        0.008 * article.content.split(" ").length * 100
+                      ) / 100
+                    ).toFixed(1)}{" "}
+                    minutes read
+                  </p>
+                </div>
               </div>
-              <small></small>
             </div>
           </div>
-        </div>
-        <h2 className="hero-heading mx-5">{article.title}</h2>
-        <p className="fs-3 mx-5">{article.description}</p>
-      </section>
-      <div className="container p-5 my-5">{article.content}</div>
+          <h2 className="hero-heading mx-5">{article.title}</h2>
+          <p className="fs-3 mx-5">{article.description}</p>
+          <div className="d-flex">
+            <FacebookShareButton className="mx-5" url="facebook.com">
+              <IconContext.Provider value={{ className: "top-react-icons" }}>
+                <FaFacebookSquare />
+              </IconContext.Provider>
+            </FacebookShareButton>
+            <LinkedinShareButton className="" url="Linkedin.com">
+              <IconContext.Provider value={{ className: "top-react-icons" }}>
+                <FaLinkedin />
+              </IconContext.Provider>
+            </LinkedinShareButton>
+            <TwitterShareButton className="mx-5" url="twitter.com">
+              <IconContext.Provider value={{ className: "top-react-icons" }}>
+                <FaTwitter />
+              </IconContext.Provider>
+            </TwitterShareButton>
+          </div>
+        </section>
+        <div className="container p-5 my-5">{article.content}</div>
+      </div>
     </>
   );
 };
