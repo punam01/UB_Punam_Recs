@@ -2,12 +2,13 @@ import JoditEditor from "jodit-react";
 import React, { useRef, useState, useContext } from "react";
 import Navbar from "./Navbar";
 import articleContext from "../context/articles/ArticleContext";
+import { useNavigate } from "react-router-dom";
 
 function TextEditor({ setContent }) {
   const context = useContext(articleContext);
   //destructing Articles context
   const { addArticle } = context;
-
+  const navigate=useNavigate();
   const editor = useRef(null);
   const [article, setArticle] = useState({
     title: "",
@@ -29,6 +30,7 @@ function TextEditor({ setContent }) {
     content: "",
     tag: "",
   })
+  
   };
   const onChange = (e) => {
     //spread operator

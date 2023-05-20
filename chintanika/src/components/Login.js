@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   //const { showAlert } = props;
@@ -73,6 +73,12 @@ const Login = (props) => {
               Login
             </button>
           </div>
+          <p>
+            Don't have an Account?
+            <Link className="" to="/signup">
+              Sign Up
+            </Link>
+          </p>
         </form>
       </section>
     </>

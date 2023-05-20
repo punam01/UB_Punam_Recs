@@ -11,6 +11,7 @@ import MyArticles from "./components/MyArticles";
 import ArticleState from "./context/articles/ArticleState";
 import Alert from "./components/Alert";
 import ReadArticles from "./components/ReadArticles";
+import OpenArticle from "./components/OpenArticle";
 
 function App() {
   const [alert,setAlert]=useState(null);
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/read" element={<ReadArticles />}></Route>
             <Route exact path="/myarticles" element={<MyArticles showAlert={showAlert} />}></Route>
+            <Route exact path="/open" element={<OpenArticle/>}></Route>
           </Routes>
         </Router>
         <Footer></Footer>

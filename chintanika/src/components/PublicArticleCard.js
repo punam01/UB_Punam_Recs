@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaReadme, FaShareSquare } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const PublicArticleCard = (props1,props2) => {
 
@@ -44,13 +45,13 @@ const PublicArticleCard = (props1,props2) => {
                   </IconContext.Provider>
                 </button>
 
-                <button className="btn mx-2">
+                <Link className="btn mx-2" to="/open">
                   <IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
                     <FaReadme />
                   </IconContext.Provider>
-                </button>
+                </Link>
 
                 <div
                   className="modal fade"

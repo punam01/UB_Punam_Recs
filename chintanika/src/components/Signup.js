@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup(props) {
   let navigate = useNavigate();
@@ -108,6 +108,12 @@ function Signup(props) {
               Sign Up
             </button>
           </div>
+          <p>
+            Already have an Account?
+            <Link className="" to="/login">
+              Login
+            </Link>
+          </p>
         </form>
       </section>
     </>
