@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useNavigate } from "react-router-dom"
+
 const Login=(params)=> {
-    let navigate=useNavigate ();
+    let navigate=useNavigate();
    const[credentials,setCredentials]=useState({
     email:"",
     password:""
@@ -29,6 +30,8 @@ const Login=(params)=> {
   const onChange=(e)=>{
     setCredentials({...credentials,[e.target.name]:e.target.value})
   }
+
+  
   return (
     <>
       <section className="container my-5">
