@@ -40,6 +40,7 @@ function ArticleCard(props) {
       earticle.etag.toString()
     );
     refClose.current.click();
+    //props.showAlert("Successful edit","success");
   };
   const onChange = (e) => {
     //spread operator

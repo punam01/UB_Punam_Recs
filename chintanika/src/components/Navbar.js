@@ -1,11 +1,16 @@
 import { FaBars, FaSearch, FaUserCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar(props) {
+  let navigate=useNavigate();
   //useLocation to get current working component
   let location = useLocation();
-
+  const handleLogout=()=>{
+    localStorage.removeItem('token');
+    console.log(localStorage.getItem('token'));
+    navigate("/login");
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg fixed-top">
@@ -93,9 +98,14 @@ function Navbar(props) {
                 </Link>
                 <ul className="dropdown-menu border-0">
                   <li>
-                    <Link className="dropdown-item" to="/signup">
+                    {!localStorage.getItem('token')?
+                      <Link className="dropdown-item" to="/">
                       Profile
                     </Link>
+                    :<Link onClick={handleLogout} className="dropdown-item" to="/login">
+                      Logout
+                    </Link>
+                    }
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/myarticles">

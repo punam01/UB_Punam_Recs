@@ -6,6 +6,7 @@ import InfScroll from './InfScroll';
 import Navbar from './Navbar';
 
 function Home(){
+    //console.log(localStorage.getItem('token'));
     return(
         <>
         <Navbar heading="Chintanika" title="WELCOME"/>

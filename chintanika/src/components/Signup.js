@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Signup(params) {
+function Signup(props) {
   let navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
@@ -31,6 +31,10 @@ function Signup(params) {
       localStorage.setItem("token", json.authToken);
       console.log("token:"+json.authToken);
       navigate("/");
+     // props.showAlert("Account created successfully","success");
+    }
+    else{
+      //  props.showAlert("Invalid Credentials","danger");
     }
   };
   const onChange = (e) => {

@@ -1,25 +1,28 @@
 import React, { useContext, useEffect } from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import articleContext from "../context/articles/ArticleContext";
-import Alert from "./Alert";
-import { IconContext } from "react-icons";
-import { FaSadTear } from "react-icons/fa";
 
 function MyArticles() {
+  let navigate=useNavigate();
   const context = useContext(articleContext);
   //destructing Articles context
   const { articles, getArticles } = context;
   useEffect(() => {
-    getArticles();
-    // eslint-disable-next-line
+    //check if auth token is not null
+    if(localStorage.getItem('token')){
+      getArticles();
+    }
+    else{
+        navigate("/login");
+    }
   }, []);
 
   return (
     <>
       <Navbar heading="Chintanika" title="MY ARTICLES"></Navbar>
-      <Alert message="This is alert box" />
+      
       <section className="hero-section">
         <h1 className="hero-heading text-start">Your stories</h1>
         <div className="d-flex">

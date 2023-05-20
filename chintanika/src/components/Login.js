@@ -1,37 +1,40 @@
 import React, { useState } from "react";
-import {useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-const Login=(params)=> {
-    let navigate=useNavigate();
-   const[credentials,setCredentials]=useState({
-    email:"",
-    password:""
-   });
+const Login = (props) => {
+  //const { showAlert } = props;
+  let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent from reload
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
-        "Content-type": "application/json"
-    },
-        body:JSON.stringify({email:credentials.email,password:credentials.password})
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
     });
     const json = await response.json();
     console.log(json);
-    if(json.success){
-        //save auth token and redirect localstorage
-        localStorage.setItem('token',json.authToken);
-        navigate("/")
-    }
-    else{
-        alert("invalid cred");
+    if (json.success) {
+      //save auth token and redirect localstorage
+      localStorage.setItem("token", json.authToken);
+      navigate("/");
+      //showAlert("Loggrd In successfully", "success");
+    } else {
+      //showAlert("Invalid Details", "danger");
     }
   };
-  const onChange=(e)=>{
-    setCredentials({...credentials,[e.target.name]:e.target.value})
-  }
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
-  
   return (
     <>
       <section className="container my-5">
@@ -66,7 +69,7 @@ const Login=(params)=> {
             />
           </div>
           <div className="my-3 col-6">
-            <button className="btn hero" type="submit" >
+            <button className="btn hero" type="submit">
               Login
             </button>
           </div>
@@ -74,5 +77,5 @@ const Login=(params)=> {
       </section>
     </>
   );
-}
+};
 export default Login;
