@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import MyArticles from "./components/MyArticles";
 import ArticleState from "./context/articles/ArticleState";
 import Alert from "./components/Alert";
+import ReadArticles from "./components/ReadArticles";
 
 function App() {
   const [alert,setAlert]=useState(null);
@@ -38,6 +39,7 @@ function App() {
               element={<TextEditor setContent={setContent} />}
             ></Route>
             <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/read" element={<ReadArticles />}></Route>
             <Route exact path="/myarticles" element={<MyArticles showAlert={showAlert} />}></Route>
           </Routes>
         </Router>

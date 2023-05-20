@@ -21,15 +21,14 @@ function MyArticles() {
 
   return (
     <>
-      <Navbar heading="Chintanika" title="MY ARTICLES"></Navbar>
-      
+      <Navbar heading="Chintanika" title="MY ARTICLES"></Navbar>      
       <section className="hero-section">
         <h1 className="hero-heading text-start">Your stories</h1>
         <div className="d-flex">
-          <Link className="btn hero mx-2" to="/">
+          <Link className="btn hero mx-2" to="/write">
             Write
           </Link>
-          <Link className="btn hero" to="/">
+          <Link className="btn hero" to="/read">
             Read
           </Link>
         </div>

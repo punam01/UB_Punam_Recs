@@ -132,4 +132,17 @@ router.delete("/deletearticle/:id", fetchUser, async (req, res) => {
     res.status(500).send("Couldnt Update");
   }
 });
+
+//ROUTE-5: Get all the articles: GET "/api/article/fetchallarticles" .Login Required
+//1.Get token from header
+router.get("/allarticles", async (req, res) => {
+  try {
+    const allarticles = await Article.find({});
+    res.send({data:allarticles})
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 module.exports = router;

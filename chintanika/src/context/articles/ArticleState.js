@@ -7,7 +7,7 @@ const ArticleState = (props) => {
 
   const [articles, setArticles] = useState(articleInitial);
 
-  //Fetch all notes
+  //Fetch all user article
   const getArticles = async () => {
     const response = await fetch(`${host}/api/article/fetchallarticles`, {
       method: "GET",
@@ -21,6 +21,23 @@ const ArticleState = (props) => {
     setArticles(json);
   };
 
+
+  //Fetch all article
+  const AllArticles = async () => {
+    const response = await fetch(`${host}/api/article/allarticles`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json"
+      },
+    });
+    const json = await response.json();
+    console.log(json);
+    setArticles(json);
+  };
+
+
+
+  
   //ADD ARTICLE
   const addArticle = async (title, description, content, tag) => {
     const response = await fetch(`${host}/api/article/addarticle`, {
@@ -94,6 +111,7 @@ const ArticleState = (props) => {
         editArticle,
         viewArticle,
         getArticles,
+        AllArticles
       }}
     >
       {props.children}
