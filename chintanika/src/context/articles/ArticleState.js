@@ -49,7 +49,7 @@ const ArticleState = (props) => {
       body: JSON.stringify({ title, description, content, tag }),
     });
     const article = await response.json();
-    setArticles(articles.concat(article));
+    setArticles(Array.isArray(articles) ? articles.concat(article) : []);
   };
 
   //DELETE ARTICLE (takes article id)

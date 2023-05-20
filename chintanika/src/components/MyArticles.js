@@ -37,7 +37,7 @@ function MyArticles() {
         {articles.length === 0 && "No articles!"}
         <br />
       </div>
-      {articles.map((article) => {
+      {articles.length!==0 && articles.map((article) => {
         return <ArticleCard key={article._id} article={article} />;
       })}
     </>
