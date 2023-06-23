@@ -8,7 +8,7 @@ function TextEditor({ setContent }) {
   const context = useContext(articleContext);
   //destructing Articles context
   const { addArticle } = context;
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const editor = useRef(null);
   const [article, setArticle] = useState({
     title: "",
@@ -17,24 +17,29 @@ function TextEditor({ setContent }) {
     tag: "",
   });
   const handleClick = (e) => {
-    addArticle(
-      article.title.toString(),
-      article.description.toString(),
-      article.content.toString(),
-      article.tag.toString()
-    );
-    //clear fields
-    setArticle({
-    title: "",
-    description: "",
-    content: "",
-    tag: "",
-  })
-  
+    if (localStorage.getItem("token")) {
+      addArticle(
+        article.title.toString(),
+        article.description.toString(),
+        article.content.toString(),
+        article.tag.toString()
+      );
+      //clear fields
+      setArticle({
+        title: "",
+        description: "",
+        content: "",
+        tag: "",
+      });
+      navigate("/myarticles");
+    }
+    else{
+      navigate("/login");
+    }
   };
   const onChange = (e) => {
     //spread operator
-  setArticle({ ...article, [e.target.name]: [e.target.value] });
+    setArticle({ ...article, [e.target.name]: [e.target.value] });
   };
 
   return (
@@ -106,7 +111,7 @@ function TextEditor({ setContent }) {
           />
         </div>
         <div className="text-end">
-          <button  className=" btn hero" onClick={handleClick}>
+          <button className=" btn hero" onClick={handleClick}>
             Publish Article
           </button>
         </div>

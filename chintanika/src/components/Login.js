@@ -25,6 +25,7 @@ const Login = (props) => {
     if (json.success) {
       //save auth token and redirect localstorage
       localStorage.setItem("token", json.authToken);
+      localStorage.setItem("userId",json._id);
       navigate("/");
       //showAlert("Loggrd In successfully", "success");
     } else {

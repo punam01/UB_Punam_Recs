@@ -4,16 +4,19 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar(props) {
-  let navigate=useNavigate();
-  const [image,setImage]=useState("");
-  
+  let navigate = useNavigate();
+  const [image, setImage] = useState("");
+  //setImage(localStorage.getItem("image"));
   //useLocation to get current working component
   let location = useLocation();
-  const handleLogout=()=>{
-    localStorage.removeItem('token');
-    console.log(localStorage.getItem('token'));
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    console.log(localStorage.getItem("token"));
     navigate("/login");
-  }
+  };
+
+  //get image of user
+
   return (
     <>
       <nav className="navbar navbar-expand-lg fixed-top">
@@ -92,25 +95,35 @@ function Navbar(props) {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >{image===""|| image===null?
-                  <IconContext.Provider
-                    value={{ className: "top-react-icons" }}
-                  >
-                    <FaUserCircle />
-                  </IconContext.Provider>:
-                  <img src={image} style={{width:"100px",height:"100px"}}/>
-                  }
+                >
+                  {image === "" || image === null ? (
+                    <IconContext.Provider
+                      value={{ className: "top-react-icons" }}
+                    >
+                      <FaUserCircle />
+                    </IconContext.Provider>
+                  ) : (
+                    <img
+                      src={image}
+                      style={{ width: "100px", height: "100px" }}
+                    />
+                  )}
                 </Link>
                 <ul className="dropdown-menu border-0">
                   <li>
-                    {!localStorage.getItem('token')?
+                    {localStorage.getItem("token")==0 ? (
                       <Link className="dropdown-item" to="/">
-                      Profile
-                    </Link>
-                    :<Link onClick={handleLogout} className="dropdown-item" to="/login">
-                      Logout
-                    </Link>
-                    }
+                        Profile
+                      </Link>
+                    ) : (
+                      <Link
+                        onClick={handleLogout}
+                        className="dropdown-item"
+                        to="/login"
+                      >
+                        Logout
+                      </Link>
+                    )}
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/myarticles">

@@ -38,6 +38,7 @@ function MyArticles() {
         <br />
       </div>
       {articles.length!==0 && articles.map((article) => {
+        {console.log(article);}
         return <ArticleCard key={article._id} article={article} />;
       })}
     </>

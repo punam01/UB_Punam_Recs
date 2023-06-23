@@ -12,6 +12,7 @@ import ArticleState from "./context/articles/ArticleState";
 import Alert from "./components/Alert";
 import ReadArticles from "./components/ReadArticles";
 import OpenArticle from "./components/OpenArticle";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const [alert,setAlert]=useState(null);
@@ -42,7 +43,7 @@ function App() {
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/read" element={<ReadArticles />}></Route>
             <Route exact path="/myarticles" element={<MyArticles showAlert={showAlert} />}></Route>
-            <Route exact path="/open" element={<OpenArticle/>}></Route>
+            <Route exact path="/open/:data" element={<OpenArticle/>}></Route>
           </Routes>
         </Router>
         <Footer></Footer>

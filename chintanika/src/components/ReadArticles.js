@@ -8,8 +8,8 @@ const ReadArticles = () => {
   const context = useContext(articleContext);
   //destructing Articles context
   const { articles, AllArticles } = context;
-  console.log("articles: " + articles.data);
-  console.log("all articles:" + AllArticles);
+  //console.log("articles: " + articles.data);
+  //console.log("all articles:" + AllArticles);
   useEffect(() => {
     //check if auth token is not null
     if (localStorage.getItem("token")) {
@@ -23,10 +23,10 @@ const ReadArticles = () => {
       <Navbar heading="Chintanika" title="READ" />
       <section className="hero-section">
           <div className="card border-0" style={{backgroundColor:"#fbf8f2"}}>
-            <div class="card-body">
-              <blockquote class="blockquote mb-0 border-0">
+            <div className="card-body">
+              <blockquote className="blockquote mb-0 border-0">
                 <p className="hero-heading fs-1">A writer only begins a book.<br/>A reader finishes it.</p>
-                <footer class="blockquote-footer">
+                <footer className="blockquote-footer">
                   <cite title="Source Title">Samuel Johnson</cite>
                 </footer>
               </blockquote>

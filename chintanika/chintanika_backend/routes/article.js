@@ -87,8 +87,10 @@ router.put(
 
       //Find the article to be updated and update it
       let article = await Article.findById(req.params.id);
+      console.log("routes/article.js"+article);
       //if the article does not exixts then==>
       if (!article) {
+
         return res.status(404).send("Article not found");
       }
       //check if the author is trying to update ot someone else
@@ -103,6 +105,7 @@ router.put(
       );
       res.json(article);
     } catch (error) {
+      console.log("routes/article.js"+error.message);
       console.error(error.message);
       res.status(500).send("Couldnt Update");
     }

@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { IconContext } from "react-icons";
-import { FaEdit, FaShareSquare, FaTrash } from "react-icons/fa";
+import { FaEdit, FaShareSquare, FaTrash,FaBookReader } from "react-icons/fa";
 import articleContext from "../context/articles/ArticleContext";
 import JoditEditor from "jodit-react";
+import { useNavigate } from "react-router-dom";
 
 function ArticleCard(props) {
   const context = useContext(articleContext);
@@ -10,6 +11,12 @@ function ArticleCard(props) {
   const ref = useRef(null);
   const refClose = useRef(null);
   const editor = useRef(null);
+
+  const navigate = useNavigate(); // Create a navigate function
+
+  const handleReadClick = () => {
+     navigate(`/open/${encodeURIComponent(JSON.stringify(article))}`);
+  };
 
   const [earticle, setArticle] = useState({
     eid: "",
@@ -86,6 +93,12 @@ function ArticleCard(props) {
                     value={{ className: "top-react-icons" }}
                   >
                     <FaShareSquare />
+                  </IconContext.Provider>
+                </button>
+                
+                <button className="btn mx-2">
+                  <IconContext.Provider value={{ className: "top-react-icons m-2" }}>
+                    <FaBookReader onClick={handleReadClick} /> {/* Add onClick event */}
                   </IconContext.Provider>
                 </button>
 

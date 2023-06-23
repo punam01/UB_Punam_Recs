@@ -5,7 +5,6 @@ const { body, validationResult } = require("express-validator");
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const fetchUser = require("../models/middleware/fetchUser");
-
 //to check if someone tempers the userid sent to get token
 const JWT_SECRET = "ChaseYourStarsFoolLifeIsShort";
 
@@ -123,6 +122,16 @@ router.post("/getuser",fetchUser , async (req, res) => {
     const userid = req.user.id;
     const user = await User.findById(userid).select("-password");
     res.send(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+router.get("/allusers", async (req, res) => {
+  try {
+    const allusers= await User.find({});
+    res.send({data:allusers})
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error");

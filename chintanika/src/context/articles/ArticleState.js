@@ -16,8 +16,9 @@ const ArticleState = (props) => {
         "auth-token":localStorage.getItem('token')
       },
     });
+    console.log("this is the response ........."+response);
     const json = await response.json();
-    console.log(json);
+    //console.log(json);
     setArticles(json);
   };
 
@@ -31,8 +32,9 @@ const ArticleState = (props) => {
       },
     });
     const json = await response.json();
-    console.log(json);
+    //console.log(typeof json);
     setArticles(json);
+    //console.log(json.data);
   };
 
 
@@ -76,6 +78,7 @@ const ArticleState = (props) => {
   };
   //EDIT NOTE
   const editArticle = async (id, title, description, content, tag) => {
+    console.log("editing article with id" + id);
     const response = await fetch(`${host}/api/article/updatearticle/${id}`, {
       method: "PUT",
       headers: {
@@ -85,7 +88,7 @@ const ArticleState = (props) => {
       body: JSON.stringify({ title, description, content, tag }),
     });
     const json = await response.json();
-    console.log(json);
+    //console.log(json);
     let newArticle = JSON.parse(JSON.stringify(articles));
     for (let index = 0; index < newArticle.length; index++) {
       const element = articles[index];
@@ -99,8 +102,6 @@ const ArticleState = (props) => {
     }
     setArticles(newArticle);
   };
-  //VIEW NOTES
-  const viewArticle = () => {};
 
   return (
     <ArticleContext.Provider
@@ -109,11 +110,11 @@ const ArticleState = (props) => {
         addArticle,
         delArticle,
         editArticle,
-        viewArticle,
         getArticles,
         AllArticles
       }}
     >
+      {console.log(articles)}
       {props.children}
     </ArticleContext.Provider>
   );
