@@ -111,7 +111,7 @@ function Navbar(props) {
                 </Link>
                 <ul className="dropdown-menu border-0">
                   <li>
-                    {localStorage.getItem("token")==0 ? (
+                    {localStorage.getItem("token")===0 ? (
                       <Link className="dropdown-item" to="/">
                         Profile
                       </Link>

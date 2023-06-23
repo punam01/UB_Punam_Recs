@@ -17,8 +17,8 @@ function MyArticles() {
     else{
         navigate("/login");
     }
-  }, []);
-
+  }, [getArticles,navigate]);
+  
   return (
     <>
       <Navbar heading="Chintanika" title="MY ARTICLES"></Navbar>      
